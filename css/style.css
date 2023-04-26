@@ -1,0 +1,32 @@
+@import url(reset.css);
+@import url(button.css);
+@import url(var.css);
+@import url(font.css);
+
+#box-main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    padding: 24px;
+    background-color: aqua;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+form {
+    display: grid;
+    gap: 12px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid black;
+}
