@@ -1,8 +1,8 @@
-button{
+button {
     cursor: pointer;
 }
 
-button:hover{
+button:hover {
     opacity: 80%;
 }
 
@@ -17,4 +17,26 @@ button:active {
     padding: 8px 22px;
     background-color: var(--light-button);
     white-space: nowrap;
+    color: #ffffff;
+    font-weight: normal;
+}
+
+.invert {
+    background-color: #ffffff;
+    color: var(--light-button);
+    border: 2px solid var(--light-button);
+}
+
+#close-box-msg {
+    background: none;
+    position: absolute;
+    right: 0;
+}
+
+#btn-settings {
+    margin: 12px;
+    background: none;
+    position: absolute;
+    top: 0;
+    right: 0;
 }

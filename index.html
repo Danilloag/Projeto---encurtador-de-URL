@@ -6,27 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Encurtador de URL</title>
+    <title>URL shortener</title>
 </head>
 
 <body>
 
     <div id="box-main">
         <main>
-            <h1>Encurtador de URL</h1>
+            <h1>URL shortener</h1>
 
-            <button type="button" class="big-button">LOGO</button>
+            <button type="button" id="btn-settings"><img src="/assets/icons/settings.svg" alt="settings"></button>
+
+            <button type="button" class="big-button invert">LOGO</button>
 
             <form>
-                <input type="text" placeholder="URL A SER ENCURTADA">
+                <input type="text" placeholder="URL TO SHORT">
 
-                <button type="submit" class="big-button">ENCURTAR</button>
+                <button type="submit" class="big-button">SHORT</button>
             </form>
+
+            <div id="box-functions">
+                <div id="box-link">
+                    <h2>AQUI VAI FICAR O LINK</h2>
+                    <span>Link criado em: dd/mm/aaaa às 00:00:00</span>
+                </div>
+                <div id="box-buttons">
+                    <button type="button" class="big-button"><img src="/assets/icons/copy.svg">COPY</button>
+                    <button type="button" class="big-button"><img src="/assets/icons/share.svg">SHARE</button>
+                    <button type="button" class="big-button"><img src="/assets/icons/qrCode.svg">QR CODE</button>
+                </div>
+                <div id="box-social-medias">
+                    <button><img src="/assets/icons/linkedin.svg"></button>
+                    <button><img src="/assets/icons/whatsapp.svg"></button>
+                    <button><img src="/assets/icons/twitter.svg"></button>
+                </div>
+                <div id="box-send-link">
+                        <input type="text" placeholder="(00) 0 0000 0000">
+                        <button type="submit" class="big-button"><img src="/assets/icons/share.svg"></button>
+                </div>
+                <div id="box-msg">
+                    <p>Congratulations!</p>
+                    <button type="button" id="close-box-msg"><img src="/assets/icons/close.svg" alt="close"></button>
+                </div>
+            </div>
         </main>
 
-    <footer>
-        <span>MACH1 - Copyright © 2023</span>
-    </footer>
+        <footer>
+            <span>MACH1 - Copyright © 2023</span>
+        </footer>
     </div>
 
     <script src="/js/script.js"></script>
