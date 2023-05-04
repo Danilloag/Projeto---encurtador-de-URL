@@ -11,7 +11,7 @@
 
 <body>
 
-    <div id="box-main">
+    <div id="main-box">
         <main>
             <h1>URL shortener</h1>
 
@@ -22,7 +22,7 @@
             <form>
                 <input type="text" placeholder="URL TO SHORT">
 
-                <button type="submit" class="big-button">SHORT</button>
+                <button type="button" class="big-button" id="btn-shortURL"><img src="/assets/icons/link.svg" alt="link"></button>
             </form>
 
             <div id="box-functions">
@@ -32,18 +32,19 @@
                 </div>
                 <div id="box-buttons">
                     <button type="button" class="big-button"><img src="/assets/icons/copy.svg">COPY</button>
-                    <button type="button" class="big-button"><img src="/assets/icons/share.svg">SHARE</button>
-                    <button type="button" class="big-button"><img src="/assets/icons/qrCode.svg">QR CODE</button>
+                    <button type="button" class="big-button" id="btn-share"><img src="/assets/icons/share.svg">SHARE</button>
+                    <button type="button" class="big-button" id="btn-create-qrcode"><img src="/assets/icons/qrCode.svg">QR CODE</button>
                 </div>
                 <div id="box-social-medias">
-                    <button><img src="/assets/icons/linkedin.svg"></button>
-                    <button><img src="/assets/icons/whatsapp.svg"></button>
-                    <button><img src="/assets/icons/twitter.svg"></button>
+                    <button id="btn-share-linkedin"><img src="/assets/icons/linkedin.svg"></button>
+                    <button id="btn-share-wapp"><img src="/assets/icons/whatsapp.svg"></button>
+                    <button id="btn-share-twitter"><img src="/assets/icons/twitter.svg"></button>
                 </div>
                 <div id="box-send-link">
                         <input type="text" placeholder="(00) 0 0000 0000">
                         <button type="submit" class="big-button"><img src="/assets/icons/share.svg"></button>
                 </div>
+
                 <div id="box-msg">
                     <p>Congratulations!</p>
                     <button type="button" id="close-box-msg"><img src="/assets/icons/close.svg" alt="close"></button>

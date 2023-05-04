@@ -3,7 +3,7 @@
 @import url(var.css);
 @import url(font.css);
 
-#box-main {
+#main-box {
     background-image: url(/assets/background.jpg);
     height: 100%;
     display: flex;
@@ -26,9 +26,13 @@ main {
 }
 
 form {
-    display: grid;
+    display: flex;
     gap: 12px;
     width: 80%;
+}
+
+form input[type="text"] {
+    flex-grow: 2;
 }
 
 input[type="text"] {
@@ -42,7 +46,7 @@ input[type="text"]:focus {
 }
 
 #box-functions {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 12px;
     width: 80%;
@@ -78,15 +82,9 @@ input[type="text"]:focus {
 
 #box-social-medias {
     height: 62px;
-    display: flex;
+    display: none;
     justify-content: center;
     gap: 32px;
-}
-
-img {
-    display:inline;
-    vertical-align: middle;
-    margin-right: 4px;
 }
 
 #box-msg {
@@ -95,17 +93,23 @@ img {
     background-color: #d0ffd0;
     border: 1px solid #00ff00;
     height: 72px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     position: relative;
 }
 
 #box-send-link {
-    display: flex;
+    display: none;
     gap: 12px;
     width: 100%;
     justify-content: center;
+}
+
+img {
+    display:inline;
+    vertical-align: middle;
+    margin-right: 4px;
 }
 
 footer {
