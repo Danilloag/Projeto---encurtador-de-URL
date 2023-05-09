@@ -25,6 +25,12 @@ button{
     font-weight: normal;
 }
 
+.delete-button {
+    background-color: #ffdbdb;
+    border: #ff4848 1px solid;
+    color: #ff4848;
+}
+
 .invert {
     background-color: #ffffff;
     color: var(--light-button);

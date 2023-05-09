@@ -45,50 +45,14 @@
                         </tr>
                     </thead>
                     <tbody id="table-body">
-                        <tr>
-                            <td>link encurtado</td>
-                            <td>link original</td>
-                            <td>06/05/2023 07:47:32</td>
-                            <td>
-                                <button><img src="/assets/icons/edit.svg" alt="edit"></button>
-                                <button><img src="/assets/icons/delete.svg" alt="delete"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>link encurtado</td>
-                            <td>link original</td>
-                            <td>06/05/2023 07:47:32</td>
-                            <td>
-                                <button><img src="/assets/icons/edit.svg" alt="edit"></button>
-                                <button><img src="/assets/icons/delete.svg" alt="delete"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>link encurtado</td>
-                            <td>link original</td>
-                            <td>06/05/2023 07:47:32</td>
-                            <td>
-                                <button><img src="/assets/icons/edit.svg" alt="edit"></button>
-                                <button><img src="/assets/icons/delete.svg" alt="delete"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>link encurtado</td>
-                            <td>link original</td>
-                            <td>06/05/2023 07:47:32</td>
-                            <td>
-                                <button><img src="/assets/icons/edit.svg" alt="edit"></button>
-                                <button><img src="/assets/icons/delete.svg" alt="delete"></button>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
 
             <div id="box-functions">
                 <div id="box-link">
-                    <h2 id="link-displayed">AQUI VAI FICAR O LINK</h2>
-                    <span>Link criado em: dd/mm/aaaa às 00:00:00</span>
+                    <h2 id="link-displayed"></h2>
+                    <span id="date-link">Link criado em: dd/mm/aaaa às 00:00:00</span>
                 </div>
                 <div id="box-buttons">
                     <button type="button" class="big-button" id="btn-copy"><img
@@ -104,20 +68,51 @@
                     <button id="btn-share-twitter"><img src="/assets/icons/twitter.svg"></button>
                 </div>
                 <div id="box-send-link">
-                    <input type="text" placeholder="(00) 0 0000 0000">
-                    <button type="submit" class="big-button"><img src="/assets/icons/share.svg"></button>
+                    <input type="text" placeholder="(00) 0 0000 0000" id="phone-number">
+                    <button type="submit" class="big-button" id="btn-send-wapp"><img src="/assets/icons/share.svg"></button>
                 </div>
 
-                <div id="box-msg">
-                    <p>Congratulations!</p>
-                    <button type="button" id="close-box-msg"><img src="/assets/icons/close.svg" alt="close"></button>
-                </div>
             </div>
+
         </main>
+
+        <div id="box-msg" class="success-msg">
+            <p id="feedback-message"></p>
+            <button type="button" id="close-box-msg"><img src="/assets/icons/close.svg" alt="close"></button>
+        </div>
 
         <footer>
             <span>MACH1 - Copyright © 2023</span>
         </footer>
+
+        <div id="background-modal" class="hidden">
+
+            <div id="modal-edit" class="hidden">
+                <div class="card-modal">
+                    <p>Editing</p>
+
+                    <form>
+                        <label for="pathEdit">Path (Slug)</label>
+                        <input type="text" id="pathEdit">
+
+                        <label for="originalUrl">Original URL</label>
+                        <input type="text" id="originalUrl">
+                    </form>
+
+                    <button type="button" class="big-button">Save</button>
+
+                </div>
+            </div>
+
+            <div id="modal-delete" class="hidden">
+                <p>Are you sure you want to delete?</p>
+
+                <div id="box-button-modal">
+                    <button type="button" class="big-button delete-button">Yes</button>
+                    <button type="button" class="big-button cancel-button">No</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="/js/script.js" type="module"></script>

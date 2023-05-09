@@ -1,3 +1,11 @@
+import { storageUpdate, postAPI } from './api.js'
+import { renderUrlShort } from './api.js'
+import { validateUrl } from './regex.js'
+import { feedBackUser } from './feedBack.js'
+import { showBox, closeBox } from './showAndClose.js'
+
+window.addEventListener('load', storageUpdate())
+
 //Box
 const boxInitial = document.querySelector('#box-initial')
 const boxMsg = document.querySelector('#box-msg')
@@ -13,27 +21,10 @@ const btnLogo = document.querySelector('#btn-logo')
 const btnSettings = document.querySelector('#btn-settings')
 const btnShortURL = document.querySelector('#btn-shortURL')
 const btnShare = document.querySelector('#btn-share')
-const btnShareLinkedin = document.querySelector('#btn-share-linkedin')
 const btnShareWapp = document.querySelector('#btn-share-wapp')
-const btnShareTwitter = document.querySelector('#btn-share-twitter')
 const btnCreateQRCode = document.querySelector('#btn-create-qrcode')
 const btnCopy = document.querySelector('#btn-copy')
-const btnCloseBoxMsg = document.querySelector('#close-box-msg')
-
 const linkDisplayed = document.querySelector('#link-displayed')
-const bodyTable = document.querySelector('#table-body')
-
-// Domínio API: 9aj3.short.gy
-// const keyAPI = 'sk_xGdYnKVzmd1U2UfL';
-
-//Open and show box
-function closeBox(box) {
-    box.style.display = "none";
-}
-
-function showBox(box) {
-    box.style.display = "flex";
-}
 
 //Buttons click
 btnLogo.addEventListener("click", function () {
@@ -49,9 +40,19 @@ btnSettings.addEventListener("click", function () {
 
 btnShortURL.addEventListener("click", function () {
     let insertedURL = document.getElementById('inserted-url').value
-    console.log(insertedURL)
-    postAPI(insertedURL)
-    showBox(boxFunctions)
+
+    if (validateUrl(insertedURL)) {
+        postAPI(insertedURL)
+            .then(() => {
+                storageUpdate()
+                renderUrlShort()
+                showBox(boxFunctions)
+                feedBackUser(true, 'URL shortened successfully!')
+            })
+            .catch(err => console.error(err))
+    } else {
+        feedBackUser(false, 'Invalid URL.')
+    }
 })
 
 btnShare.addEventListener("click", function () {
@@ -62,97 +63,55 @@ btnShareWapp.addEventListener("click", function () {
     showBox(boxSendLink)
 })
 
-btnShareLinkedin.addEventListener("click", function () {
-    closeBox(boxSendLink)
-})
-
-btnShareTwitter.addEventListener("click", function () {
-    closeBox(boxSendLink)
-})
-
 btnCreateQRCode.addEventListener("click", function () {
     closeBox(boxSendLink)
 })
 
-btnCloseBoxMsg.addEventListener("click", function () {
-    closeBox(boxMsg)
-})
-
 //Copy link
-btnCopy.addEventListener('click', () => {
+btnCopy.addEventListener("click", () => {
+    console.log('btncopiar')
     // Seleciona o conteúdo da tag <h2>
     const range = document.createRange()
     range.selectNode(linkDisplayed)
     window.getSelection().removeAllRanges()
     window.getSelection().addRange(range)
-
     // Copia o conteúdo selecionado para a área de transferência
     document.execCommand('copy')
-
     // Limpa a seleção de texto da página
     window.getSelection().removeAllRanges()
 
-    showBox(boxMsg)
+    feedBackUser(true, 'Link copied successfully')
 });
 
-//insert table
-function insertTable(shortLink, originalLink, date) {
-    bodyTable.innerHTML += `
-    <tr>
-                            <td>${shortLink}</td>
-                            <td>${originalLink}</td>
-                            <td>${date}</td>
-                            <td>
-                                <button><img src="/assets/icons/edit.svg" alt="edit"></button>
-                                <button><img src="/assets/icons/delete.svg" alt="delete"></button>
-                            </td>
-                        </tr>
-    `
-}
+//Compartilhando nas mídias sociais
+let btnSendWapp = document.getElementById('btn-send-wapp')
+btnSendWapp.addEventListener("click", function () {
 
-function insertHTML(local, content) {
-    local.innerHTML = content
-}
+    let phoneNumber = document.getElementById('phone-number').value
+    let urlShare = document.getElementById('link-displayed').textContent
 
-//GET and POST
-const optionsGet = {
-    method: 'GET',
-    headers: { accept: 'application/json', Authorization: 'sk_xGdYnKVzmd1U2UfL' }
-}
+    let link = `whatsapp://send?phone=${phoneNumber}&text=Olá, segue o link encurtado: ${urlShare}`;
 
-const requirementAPI = () => {
-    fetch('https://api.short.io/api/domains', optionsGet)
-        .then(response => response.json())
-        .then(
-            response => {
-                const idRequirementAPI = response[0].id
-                const hostNameRequirementAPI = response[0].hostname
-            }
-        )
-        .catch(err => console.error(err))
-}
+    window.open(link);
+})
 
-const postAPI = (insertedURL) => {
-    const optionsPost = {
-        method: 'POST',
-        headers: {
-            accept: 'application/json',
-            'content-type': 'application/json',
-            Authorization: 'sk_xGdYnKVzmd1U2UfL'
-        },
-        body: JSON.stringify({
-            domain: '9aj3.short.gy',
-            originalURL: insertedURL
-        })
-    }
-    return fetch('https://api.short.io/links', optionsPost)
-        .then(response => {
-            if ((response.status == 200 || response.status == 201) && response.ok) {
-                return response.json()
-            } else {
-                throw new error('MENSAGEM DE ERRO DO RETORNO DA API')
-            }
-        })
-        .then(response => console.log(response))
-        .catch(err => console.error(err))
-}
+const btnShareTwitter = document.querySelector('#btn-share-twitter')
+btnShareTwitter.addEventListener("click", function () {
+    closeBox(boxSendLink)
+    let urlShare = document.getElementById('link-displayed').textContent
+
+    let link = `https://twitter.com/intent/tweet?text=Olá, segue o link encurtado: ${urlShare}`
+
+    window.open(link)
+})
+
+//não funcionou
+const btnShareLinkedin = document.querySelector('#btn-share-linkedin')
+btnShareLinkedin.addEventListener("click", function () {
+    closeBox(boxSendLink)
+    let urlShare = document.getElementById('link-displayed').textContent
+
+    const link = `https://www.linkedin.com/sharing/share-offsite/?url=&summary=${urlShare}`;
+
+    window.open(link)
+})

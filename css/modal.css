@@ -1,0 +1,75 @@
+
+#background-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+#modal-edit,
+#modal-delete {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    z-index: 10;
+}
+
+#box-button-modal {
+    display: flex;
+    justify-content:space-around;
+}
+
+ #background-modal.hidden,#modal-edit.hidden, #modal-delete.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#background-modal,
+#modal-edit,
+#modal-delete {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.card-modal {
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-box);
+    width: 50vw;
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: var(--box-border-radius);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+label {
+    margin-top: 8px;
+}
+
+#pathEdit{
+    width: 120px;
+}
+
+#originalUrl {
+    width: 300px;
+}
