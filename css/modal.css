@@ -22,8 +22,9 @@
     z-index: 10;
 }
 
-#box-button-modal {
+.box-button-modal {
     display: flex;
+    width: 40%;
     justify-content:space-around;
 }
 

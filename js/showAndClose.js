@@ -7,6 +7,7 @@ export function showBox(box) {
 }
 
 export function showModalDelete() {
+    console.log('clicou')
     let backgroundModal = document.getElementById('background-modal')
     let modalDelete = document.getElementById('modal-delete')
     modalDelete.classList.remove("hidden")

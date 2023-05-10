@@ -29,7 +29,7 @@
             <div id="box-manage-links">
 
                 <h2>Manage Links</h2>
-                <span>Domain: INSERIR O DOMÍNIO</span>
+                <span>Domain: 9aj3.short.gy</span>
 
                 <table>
                     <thead>
@@ -69,7 +69,8 @@
                 </div>
                 <div id="box-send-link">
                     <input type="text" placeholder="(00) 0 0000 0000" id="phone-number">
-                    <button type="submit" class="big-button" id="btn-send-wapp"><img src="/assets/icons/share.svg"></button>
+                    <button type="submit" class="big-button" id="btn-send-wapp"><img
+                            src="/assets/icons/share.svg"></button>
                 </div>
 
             </div>
@@ -80,10 +81,6 @@
             <p id="feedback-message"></p>
             <button type="button" id="close-box-msg"><img src="/assets/icons/close.svg" alt="close"></button>
         </div>
-
-        <footer>
-            <span>MACH1 - Copyright © 2023</span>
-        </footer>
 
         <div id="background-modal" class="hidden">
 
@@ -99,20 +96,28 @@
                         <input type="text" id="originalUrl">
                     </form>
 
-                    <button type="button" class="big-button">Save</button>
-
+                    <div class="box-button-modal">
+                        <button type="button" class="big-button" id="btn-save-edit">Save</button>
+                        <button type="button" class="big-button cancel-button" id="btn-cancel-edit">Cancel</button>
+                    </div>
                 </div>
             </div>
 
-            <div id="modal-delete" class="hidden">
-                <p>Are you sure you want to delete?</p>
+            <div id="modal-delete" class="hidden card-modal">
+                <p id="paragraph-modal-delete"></p>
 
-                <div id="box-button-modal">
-                    <button type="button" class="big-button delete-button">Yes</button>
-                    <button type="button" class="big-button cancel-button">No</button>
+                <div class="box-button-modal">
+                    <button type="button" class="big-button delete-button" id="btn-confirm-delete">Yes</button>
+                    <button type="button" class="big-button" id="btn-cancel-delete">No</button>
                 </div>
             </div>
         </div>
+        
+        <footer>
+            <span>MACH1 - Copyright © 2023</span>
+        </footer>
+
+    
     </div>
 
     <script src="/js/script.js" type="module"></script>

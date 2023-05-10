@@ -31,6 +31,12 @@ button{
     color: #ff4848;
 }
 
+.cancel-button {
+    background-color: #ffffff;
+    border: #ff4848 1px solid;
+    color: #ff4848;
+}
+
 .invert {
     background-color: #ffffff;
     color: var(--light-button);

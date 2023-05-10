@@ -1,5 +1,5 @@
 import { storageUpdate, postAPI } from './api.js'
-import { renderUrlShort } from './api.js'
+import { renderUrlShort, generateQrCode } from './api.js'
 import { validateUrl } from './regex.js'
 import { feedBackUser } from './feedBack.js'
 import { showBox, closeBox } from './showAndClose.js'
@@ -8,11 +8,8 @@ window.addEventListener('load', storageUpdate())
 
 //Box
 const boxInitial = document.querySelector('#box-initial')
-const boxMsg = document.querySelector('#box-msg')
 const boxSendLink = document.querySelector('#box-send-link')
 const boxSocialMedias = document.querySelector('#box-social-medias')
-const boxBtns = document.querySelector('#box-buttons')
-const boxLink = document.querySelector('#box-link')
 const boxFunctions = document.querySelector('#box-functions')
 const BoxManageLinks = document.querySelector('#box-manage-links')
 
@@ -65,6 +62,7 @@ btnShareWapp.addEventListener("click", function () {
 
 btnCreateQRCode.addEventListener("click", function () {
     closeBox(boxSendLink)
+    generateQrCode();
 })
 
 //Copy link
@@ -81,9 +79,9 @@ btnCopy.addEventListener("click", () => {
     window.getSelection().removeAllRanges()
 
     feedBackUser(true, 'Link copied successfully')
-});
+})
 
-//Compartilhando nas mídias sociais
+// Sharing on social media
 let btnSendWapp = document.getElementById('btn-send-wapp')
 btnSendWapp.addEventListener("click", function () {
 
@@ -105,7 +103,6 @@ btnShareTwitter.addEventListener("click", function () {
     window.open(link)
 })
 
-//não funcionou
 const btnShareLinkedin = document.querySelector('#btn-share-linkedin')
 btnShareLinkedin.addEventListener("click", function () {
     closeBox(boxSendLink)
