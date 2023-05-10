@@ -67,7 +67,6 @@ btnCreateQRCode.addEventListener("click", function () {
 
 //Copy link
 btnCopy.addEventListener("click", () => {
-    console.log('btncopiar')
     // Seleciona o conteúdo da tag <h2>
     const range = document.createRange()
     range.selectNode(linkDisplayed)
@@ -88,7 +87,7 @@ btnSendWapp.addEventListener("click", function () {
     let phoneNumber = document.getElementById('phone-number').value
     let urlShare = document.getElementById('link-displayed').textContent
 
-    let link = `whatsapp://send?phone=${phoneNumber}&text=Olá, segue o link encurtado: ${urlShare}`;
+    let link = `whatsapp://send?phone=${phoneNumber}&text=Olá, segue o link encurtado: ${urlShare}`
 
     window.open(link);
 })
@@ -108,7 +107,7 @@ btnShareLinkedin.addEventListener("click", function () {
     closeBox(boxSendLink)
     let urlShare = document.getElementById('link-displayed').textContent
 
-    const link = `https://www.linkedin.com/sharing/share-offsite/?url=&summary=${urlShare}`;
+    const link = `https://www.linkedin.com/sharing/share-offsite/?url=&summary=${urlShare}`
 
     window.open(link)
 })

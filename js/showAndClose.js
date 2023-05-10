@@ -1,9 +1,9 @@
 export function closeBox(box) {
-    box.style.display = "none";
+    box.style.display = "none"
 }
 
 export function showBox(box) {
-    box.style.display = "flex";
+    box.style.display = "flex"
 }
 
 export function showModalDelete() {

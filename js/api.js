@@ -1,5 +1,5 @@
 // import { renderTable } from './render.js'
-import { parseDate } from "./render.js"
+import { parseDate } from "./validate.js"
 import { showModalDelete, showModalEdit, closeModalDelete, closeModalEdit } from "./showAndClose.js"
 import { feedBackUser } from "./feedBack.js"
 
